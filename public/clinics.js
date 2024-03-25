@@ -32,7 +32,7 @@ function populateClinic() {
         const clinics = result.data;
         if (clinics) {
             for (const [index, clinic] of clinics.entries()) {
-                createCompanyAddressSection(index, clinic.id, clinic.name, clinic.address);
+                createCompanyAddressSection(index, clinic.id, clinic.name, clinic.address, clinic.abn[index], clinic.postcode[index], clinic.serviceFee[index]);
             }
         }
         addBlankClinicAtBottom()
@@ -46,7 +46,7 @@ function addBlankClinicAtBottom() {
 }
 
 // Function to create a new company and address section
-function createCompanyAddressSection(index, id, name, address) {
+function createCompanyAddressSection(index, id, name, address, abn, postcode, fee) {
     const section = document.createElement('div');
     section.classList.add('company-address-section');
 
@@ -72,6 +72,20 @@ function createCompanyAddressSection(index, id, name, address) {
     section.appendChild(companyNameInput);
     section.appendChild(document.createElement('br'));
 
+    const companyAbnLabel = document.createElement('label');
+    companyAbnLabel.textContent = 'Company ABN:';
+    section.appendChild(companyAbnLabel);
+    section.appendChild(document.createElement('br'));
+    const companyAbn = document.createElement('input');
+    companyAbn.type = 'text';
+    companyAbn.classList.add('companyAbn');
+    companyAbn.name = 'companyAbn';
+    if (abn) {
+        companyAbn.value = abn;
+    }
+    section.appendChild(companyAbn);
+    section.appendChild(document.createElement('br'));
+
     const addressLabel = document.createElement('label');
     addressLabel.textContent = 'Address:';
     section.appendChild(addressLabel);
@@ -85,6 +99,35 @@ function createCompanyAddressSection(index, id, name, address) {
         addressInput.value = address;
     }
     section.appendChild(addressInput);
+    section.appendChild(document.createElement('br'));
+
+    const companyPostCodeLabel = document.createElement('label');
+    companyPostCodeLabel.textContent = 'Company Postcode:';
+    section.appendChild(companyPostCodeLabel);
+    section.appendChild(document.createElement('br'));
+    const companyPostCode = document.createElement('input');
+    companyPostCode.type = 'text';
+    companyPostCode.classList.add('companyPostCode');
+    companyPostCode.name = 'companyPostCode';
+    if (postcode) {
+        companyPostCode.value = postcode;
+    }
+    section.appendChild(companyPostCode);
+    section.appendChild(document.createElement('br'));
+
+    const serviceFeesLabel = document.createElement('label');
+    serviceFeesLabel.textContent = 'Service Fees:';
+    section.appendChild(serviceFeesLabel);
+    section.appendChild(document.createElement('br'));
+    const serviceFees = document.createElement('input');
+    serviceFees.type = 'text';
+    serviceFees.classList.add('serviceFees');
+    serviceFees.name = 'serviceFees';
+    if (fee) {
+        serviceFees.value = fee;
+    }
+    section.appendChild(serviceFees);
+
     section.appendChild(document.createElement('br'));
     section.appendChild(document.createElement('br'));
 
@@ -134,12 +177,18 @@ submitButton.addEventListener('click', async (e) => {
     const docNames = Array.from(form.getElementsByClassName('docId'), label => label.textContent);;
     const companyNames = Array.from(form.getElementsByClassName('companyName'), input => input.value.trim()).filter(value => value !== '');;
     const addresses = Array.from(form.getElementsByClassName('address'), input => input.value.trim()).filter(value => value !== '');
-    // Create an array of company and address objects
+    const companyAbn = Array.from(form.getElementsByClassName('companyAbn'), input => input.value.trim()).filter(value => value !== '');
+    const companyPostCode= Array.from(form.getElementsByClassName('companyPostCode'), input => input.value.trim()).filter(value => value !== '');
+    const serviceFees = Array.from(form.getElementsByClassName('serviceFees'), input => input.value.trim()).filter(value => value !== '');
+
     const companies = companyNames.map((name, i) => ({ docId: docNames[i], name: companyNames[i], address: addresses[i] }));
     let companiesArray = companies.map(company => ({
         id: company.docId,
         name: company.name,
-        address: company.address
+        address: company.address,
+        abn: companyAbn,
+        postcode: companyPostCode,
+        serviceFee: serviceFees
     }));
 
     const userId = currentUser.uid;
