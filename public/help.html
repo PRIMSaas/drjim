@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="./footer.js" type="module"></script>
+    <script src="./dashboard.js" type="module"></script>
+    <script src="./fileHandler.js" type="module"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>PRIMS Help</title>
+    <script>
+        function loadPage(page) {
+            document.getElementById("main-content").innerHTML = `<iframe src="${page}" class="w-full h-full border-none"></iframe>`;
+        }
+    </script>
+</head>
+<body class="flex flex-col min-h-screen p-0 pb-40">
+    <div class="flex-grow flex">
+        
+        <!-- Left Sidebar -->
+        <div class="fixed left-0 top-0 h-full w-64 bg-blue-500 p-4 text-black">
+            <!-- Logo at the top -->
+            <div class="w-full flex items-start justify-center mb-4">
+                <img src="PRIMS Without Slogan 2.png" alt="logo" class="max-w-full h-auto max-h-none object-contain mt-0"/>
+            </div>
+
+            <!-- Navigation Buttons -->
+            <button onclick="loadPage('introduction.html')" class="text-blue-500 bg-white rounded px-4 py-2 w-full h-12 mb-2">Introduction</button>
+            <button onclick="loadPage('setup.html')" class="text-blue-500 bg-white rounded px-4 py-2 w-full h-12 mb-2">Setup Guide</button>
+            <button onclick="loadPage('features.html')" class="text-blue-500 bg-white rounded px-4 py-2 w-full h-12 mb-2">Features</button>
+            <button onclick="loadPage('faq.html')" class="text-blue-500 bg-white rounded px-4 py-2 w-full h-12 mb-2">FAQ</button>
+            <button onclick="loadPage('support.html')" class="text-blue-500 bg-white rounded px-4 py-2 w-full h-12">Support</button>
+        </div>
+
+        <!-- Main Content Area -->
+        <div id="main-content" class="ml-64 p-4 w-full h-screen overflow-auto">
+            <h1 class="text-2xl font-bold">Welcome to the PRIMS Help Center</h1>
+            <p class="mt-4">Click a button in the left panel to load help content.</p>
+        </div>
+    </div>
+
+    <div id="footerId" class="w-full text-center bg-blue-500 text-white p-4 fixed bottom-0 h-28">
+        <div id="authState"></div>
+        <button id="logoutButton" class="button">Log out</button>
+    </div>
+</body>
+</html>

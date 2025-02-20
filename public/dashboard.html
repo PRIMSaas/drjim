@@ -78,11 +78,18 @@
 
 <body class="flex flex-col min-h-screen p-0 pb-40">
     <div class="flex-grow">
-        <div class="w-full bg-blue-500 text-white p-4 fixed top-0">
-            <h1 class="text-3xl font-bold mb-4"> Dr Jim app</h1>
-        </div>
+        <!-- Left Sidebar -->
+        <div class="fixed left-0 top-0 h-full w-64 bg-blue-500 p-4 text-black">
+            
+            <!-- Logo at the top -->
+            <div class="w-full flex items-start justify-center mb-4">
+                <img src="PRIMS Without Slogan 2.png" 
+                     alt="logo" 
+                     class="max-w-full h-auto max-h-none object-contain mt-0"/>
+            </div>
+            
 
-        <div class="fixed left-0 top-16 h-full w-64 bg-blue-500 p-4 text-black p-4">
+            <!-- Buttons Section -->
             <div id="SetupClinic" class="mb-4">
                 <button id="clinicSetup" type="button"
                     class="text-blue-500 bg-white rounded px-4 py-2 w-full h-12">Setup
@@ -102,6 +109,7 @@
                     Practitioners</button>
             </div>
         </div>
+
         <div id="file-processing" class="hidden">
             <div class="pt-28 ml-64 p-4 grid gap-4">
                 <div id="dropZone" class="flex items-center gap-4 border-2 border-gray-300 p-4">
@@ -154,7 +162,7 @@
         <div id="authState"></div>
         <button id="logoutButton" class="button">Log out</button>
     </div>
-
 </body>
+
 
 </html>
