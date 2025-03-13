@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>About PRIMS</title>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <div class="container mx-auto p-6">
+    <header class="bg-blue-600 text-white text-center p-6 rounded-lg shadow-md">
+      <h1 class="text-3xl font-bold">What is PRIMS?<h1>
+    </header>
+    
+    <section class="bg-white p-6 mt-6 rounded-lg shadow-md">
+      <h2 class="text-2xl font-semibold">Who is PRIMS for?</h2>
+      <p class="mt-2">PRIMS creates Tax Invoices for services to health practitioners along with a matching file for importation into Xero. Within the medical industry many practices operate as service companies for the needs of health practitioners. These practitioners are generally sole traders. Service companies must supply Tax Invoices to these practitioners for the support that they give them to operate their practice. The costs of support are usually termed service fees, and they are usually calculated as a percentage of the payments received by the practitioners.</p>
+      <p class="mt-2">Calculating the amount to bill practitioners for service fees is a tedious task. PRIMS exists to automate most of this task. Service fee calculation is a task undertaken by GP-Managers, Practice Managers, Bookkeepers, and Accountants. Any of these entities can use PRIMS to save a vast amount of time with every invoice cycle.</p>
+      <p class="mt-2">At this time PRIMS is compatible with Best Practice software, which is the commonest clinical management software used in Australian General Practices. It can be used to calculate service fees for any practitioner in a practice that uses Best Practice.</p>
+    </section>
+    
+    <section class="bg-white p-6 mt-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold">How does PRIMS work?</h2>
+        <p class="mt-2">PRIMS takes a report called Payments Export from the Reports section of Best Practice. It is necessary to export the report as an Excel file then open it and save it as a CSV file before uploading it to PRIMS.</p>
+        <p class="mt-2">Each service company needs to associate each item with a Service Fee Code. Service Fee Codes exist to reflect the fact that service fee percentages may vary between individual practitioners and with the actual items. For example, a general practice service company may be charging Dr A 35% for a given type of service, while Dr B may be on only 25%. For the services described, a service fee would be applied. For the the practitioners, the service fee code with be assigned the relevant percentages, 35 and 25% respectively. A different group of services may all be charged at different rate, and would therefore have a different service fee code.</p>
+        <p class="mt-2">Service Fee Codes allow for grouping of services so that a vast table of practitioners and services is not necessary, just a few services fee codes are created with a single code attached to each service, and each service fee code has a percentage applied to each practitioner.</p>
+        <p class="mt-2">Note that not all service in Best Practice Payments Export report have item numbers. PRIMS deals with this on the same page below where items with item numbers have service fee codes by allocating service fee codes to items based on their description rather than an item number.</p>
+      </section>
+   
+      <section class="bg-white p-6 mt-6 rounded-lg shadow-md">
+        <h2 class="text-2xl font-semibold">What is PRIMS and how do I get started?</h2>
+        <p class="mt-2">PRIMS is a web based sofware (SaaS - Software as a Service). It stores only the service company and practitioner information to generate Tax Invoices and the file for importation into Xero. None of the information in reports uploaded from Best Practice is stored, in order to keep the billing information on each patient confidential.</p>
+        <p class="mt-2">Get started by creating a login. This takes you to a dashboard where you can enter the Service Company details.</p>
+        <p class="mt-2">The next step is to create Service Fee Codes. Hit the button that says Review Service Fee Codes. You need to enter a code in the blank grey box, with the description in the next box, and if known the item numbers in the next box. A different code is needed for services that attract variations in services fees, for example DEF for the default service fee each practitioner. This doesn't have to be the same percentage, you will enter the percentage for the DEF code under the practitioners next. You may need a code for consumables, which may be recovered at 100% for one group of practitoners and another rate for another group. You only need to add a code for these consumables, say CSB, and a description say "Recoverable consumable costs".</p>
+        <p class="mt-2">Hit Review Practitioners. Entering the practitioners is the next step. Enter a percentage for each Service Fee Code. "Show details" for entry of information to go on the invoice. The details of billing entity may be different to the practitioner personal details, for example if one practitioner is an employee by another, such as a GP registrar may be.</p>
+        <p class="mt-2">After submitting all the practitioner data you will be back on the main dashboard screen. Upload a CSV file. Follow the prompts to add missing providers, items, and to add service codes to items that are missing them.</p>
+        <p class="mt-2">You will now be presented with a simple screen with Download All for a ZIP file of all the Tax Invoices, a button to download the Xero File, a hyperlink for each practitioner that opens their Tax Invoice in a separate tab, and a button to add adjustments to the Tax Invoice. Adjustments are exclusive of GST. After adding any adjustments hit Process to create new Tax Invoices.</p>   
+      </section>
+     
+</body>
+</html>
