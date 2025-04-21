@@ -3,12 +3,13 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>Sample FirebaseUI App</title>
+  <title>PRIMS Login</title>
   <script type="module" src="./firebase.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.js"></script>
   <link type="text/css" rel="stylesheet" href="https://www.gstatic.com/firebasejs/ui/6.1.0/firebase-ui-auth.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap" rel="stylesheet">
 
   <script type="module">
     import { auth } from './firebase.js';
@@ -58,8 +59,38 @@
   </style>
 </head>
 
-<body>
-  <div id="firebaseui-auth-container"></div>
+<body class="bg-gray-50 min-h-screen py-10">
+  <div class="max-w-xl mx-auto space-y-6">
+    
+    <!-- Firebase Auth UI -->
+    <div id="firebaseui-auth-container" class="bg-white shadow-md rounded-2xl p-6 border border-gray-200">
+    </div>
+
+    <!-- Demo Instructions -->
+    <div class="bg-white shadow-md rounded-2xl p-6 border border-gray-200 font-sans" style="font-family: 'Roboto', sans-serif;">
+      <h2 class="text-2xl font-bold mb-4 text-gray-800">Try the Demo</h2>
+      <p class="mb-2 text-gray-700">
+        Log in using the following credentials:
+      </p>
+      <ul class="mb-4 text-gray-700">
+        <li><strong>Email:</strong> <code class="bg-gray-100 px-2 py-1 rounded">demo@democompany.com.au</code></li>
+        <li><strong>Password:</strong> <code class="bg-gray-100 px-2 py-1 rounded">MepUu8J#t1Pdt3TLunLJ</code></li>
+      </ul>
+      <p class="mb-4 text-gray-700">
+        Once logged in, use the demonstration database:
+      </p>
+      <div class="bg-gray-50 border border-gray-200 rounded p-3 text-sm text-gray-800">
+        <strong>File:</strong>
+        <a href="Demo_Payments_Export.csv" class="text-blue-600 underline hover:text-blue-800" target="_blank">
+          Demo_Payments_Export.csv
+        </a>
+      </div>
+    </div>
+    
+
+  </div>
 </body>
+
+
 
 </html>
